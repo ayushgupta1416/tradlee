@@ -20,7 +20,7 @@ class FeedbackForm(forms.ModelForm):
     class Meta:
         model = Feedback
 
-class Product(forms.ModelForm)
+class Product(forms.ModelForm):
     class Meta:
         model = Product
 

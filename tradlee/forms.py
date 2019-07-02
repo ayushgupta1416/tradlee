@@ -1,5 +1,7 @@
 from django import forms
 from models import *
+from tradlee.models import Signup , Login , Feedback
+
 
 class SignupForm(forms.ModelForm):
     password = forms.CharField(widget=forms.PasswordInput)
@@ -14,4 +16,9 @@ class LoginForm(forms.ModelForm):
     class Meta:
         model = Login
         fields = ('email','password')
+
+class FeedbackForm(forms.ModelForm):
+    class Meta:
+        model = Feedback
+
 

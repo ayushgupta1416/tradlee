@@ -1,5 +1,5 @@
 from django import forms
-from tradlee.models import Signup, Login, Feedback, Product
+from tradlee.models import Signup, Login, Feedback, Product , add_prod_for_rent , add_prod_for_sell
 
 
 class SignupForm(forms.ModelForm):
@@ -25,6 +25,10 @@ class FeedbackForm(forms.ModelForm):
         model = Feedback
 
 
-class Product(forms.ModelForm):
+class rentForm(forms.ModelForm):
     class Meta:
-        model = Product
+        model = add_prod_for_rent
+
+class sellForm(forms.ModelForm)
+    class Meta:
+        model = add_prod_for_sell

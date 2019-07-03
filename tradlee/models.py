@@ -30,14 +30,18 @@ class Signup(models.Model):
     country = models.CharField(max_length=100)
     city = models.CharField(max_length=100)
 
-class Product(models.Model):
+class add_prod_for_rent(models.Model):
     prod_name = models.CharField(max_length=255)
     category = models.CharField(max_length=50 , choices=prod_category , default='Others')
     short_description = models.TextField(blank=True, null=True)
-    for_what = models.CharField(max_length=10 , choices=ad_category , default='Sell')
     rent_price = models.DecimalField(decimal_places=2,max_digits=10)
-    sell_price = models.DecimalField(decimal_places=2, max_digits=10)
     prod_age = models.IntegerField(max_length=2)
+
+class add_prod_for_sell(models.Model):
+    prod_name = models.CharField(max_length=255)
+    category = models.CharField(max_length=50 , choices=prod_category , default='Others')
+    short_description = models.TextField(blank=True, null=True)
+    sell_price = models.DecimalField(decimal_places=2,max_digits=10)
 
 class Feedback(models.Model):
     customer_name = models.CharField(max_length=100)

@@ -8,13 +8,7 @@ prod_category = (
     (5, "Books"),
     (6, "Others"),
 )
-"""
-ad_category = (
-    ('sell',"Sell"),
-    ('rent',"Rent"),
-    ('both',"Both"),
-)
-"""
+
 class Login(models.Model):
     email = models.CharField(max_length=200)
     password = models.CharField(max_length=50)
@@ -37,7 +31,10 @@ class add_prod_for_rent(models.Model):
     category = models.CharField(max_length=50 , choices=prod_category , default='Others')
     short_description = models.TextField(blank=True, null=True)
     rent_price = models.DecimalField(decimal_places=2,max_digits=10)
-    prod_age = models.IntegerField(max_length=2)
+    prod_age = models.IntegerField()
+
+    def __str__(self):
+        return self.prod_name
 
 class add_prod_for_sell(models.Model):
     prod_name = models.CharField(max_length=255)
@@ -45,17 +42,17 @@ class add_prod_for_sell(models.Model):
     short_description = models.TextField(blank=True, null=True)
     sell_price = models.DecimalField(decimal_places=2,max_digits=10)
 
+    def __str__(self):
+        return self.prod_name
 
-"""
-
-# Removed due to errors caused due to removal of model Product
-# TODO
-
-class Feedback(models.Model):
+class RentFeedback(models.Model):
     customer_name = models.CharField(max_length=100)
     email = models.EmailField(max_length=100)
-    product = models.ForeignKey(Product)
+    product = models.ForeignKey('add_prod_for_rent' , on_delete=models.CASCADE)
     message = models.TextField(blank=True , null=True)
 
-
-"""
+class SellFeedback(models.Model):
+    customer_name = models.CharField(max_length=100)
+    email = models.EmailField(max_length=100)
+    product = models.ForeignKey('add_prod_for_sell' , on_delete=models.CASCADE)
+    message = models.TextField(blank=True , null=True)

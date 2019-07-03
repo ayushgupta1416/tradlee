@@ -1,18 +1,20 @@
 from django.db import models
 
 prod_category = (
-    ("Men's Clothing"),
-    ("Women's Clothing"),
-    ("Electronic's"),
-    ("Furniture"),
-    ("Books"),
-    ("Others"),
+    (1, "Men's Clothing"),
+    (2, "Women's Clothing"),
+    (3, "Electronic's"),
+    (4, "Furniture"),
+    (5, "Books"),
+    (6, "Others"),
 )
+"""
 ad_category = (
     ('sell',"Sell"),
     ('rent',"Rent"),
     ('both',"Both"),
 )
+"""
 class Login(models.Model):
     email = models.CharField(max_length=200)
     password = models.CharField(max_length=50)
@@ -43,6 +45,12 @@ class add_prod_for_sell(models.Model):
     short_description = models.TextField(blank=True, null=True)
     sell_price = models.DecimalField(decimal_places=2,max_digits=10)
 
+
+"""
+
+# Removed due to errors caused due to removal of model Product
+# TODO
+
 class Feedback(models.Model):
     customer_name = models.CharField(max_length=100)
     email = models.EmailField(max_length=100)
@@ -50,3 +58,4 @@ class Feedback(models.Model):
     message = models.TextField(blank=True , null=True)
 
 
+"""

@@ -1,6 +1,6 @@
 from django.http import HttpResponse
 from django.template import loader
-from .forms import *
+from .forms import sellForm, rentForm
 
 def home(request):
     return HttpResponse('Home')
@@ -10,8 +10,11 @@ def home(request):
 def sell(request):
     if request.method == 'POST':
         return HttpResponse('form submitted!!')
+    context = dict()
+    context['form'] = sellForm()
+    temp = loader.get_template('tradlee/sell.html')
 
-    return HttpResponse('ad_post')
+    return HttpResponse(temp.render(context, request))
 
 
 def account(request, username):

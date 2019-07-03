@@ -1,14 +1,17 @@
 from django.http import HttpResponse
-
+from django.template import loader
+from .forms import *
 
 def home(request):
     return HttpResponse('Home')
     pass
 
 
-def ad_post(request):
+def sell(request):
+    if request.method == 'POST':
+        return HttpResponse('form submitted!!')
+
     return HttpResponse('ad_post')
-    pass
 
 
 def account(request, username):

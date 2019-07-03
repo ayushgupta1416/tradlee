@@ -9,7 +9,7 @@ class SignupForm(forms.ModelForm):
         model = Signup
         fields = (
         'name', 'email', 'password', 'house_no', 'address_line1', 'address_line2', 'telephone', 'zip_code', 'state',
-        'country')
+        'country','city')
 
 
 class LoginForm(forms.ModelForm):

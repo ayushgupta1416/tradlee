@@ -3,6 +3,7 @@ from django.template import loader
 from .forms import sellForm, rentForm, rentFeedbackForm, sellFeedbackForm
 from .models import *
 
+
 def home(request):
     return HttpResponse('Home')
     pass
@@ -10,12 +11,10 @@ def home(request):
 
 def sell(request):
     if request.method == 'POST':
-        form = sellForm(request.POST)
+        form = sellForm(request.POST, request.FILES)
         if form.is_valid():
-            print(1)
             form.save()
             return HttpResponseRedirect('/')
-        return HttpResponse('form submitted!!<hr>page under construction')
     context = dict()
     context['form'] = sellForm()
     temp = loader.get_template('tradlee/sell.html')
@@ -25,7 +24,10 @@ def sell(request):
 
 def rent(request):
     if request.method == 'POST':
-        return HttpResponse('form submitted!!')
+        form = rentForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            return HttpResponseRedirect('/')
     context = dict()
     context['form'] = rentForm()
     temp = loader.get_template('tradlee/rent.html')

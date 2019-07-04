@@ -1,12 +1,12 @@
 from django.db import models
 
 prod_category = (
-    (1, "Men's Clothing"),
-    (2, "Women's Clothing"),
-    (3, "Electronic's"),
-    (4, "Furniture"),
-    (5, "Books"),
-    (6, "Others"),
+    ('1', "Men's Clothing"),
+    ('2', "Women's Clothing"),
+    ('3', "Electronic's"),
+    ('4', "Furniture"),
+    ('5', "Books"),
+    ('6', "Others"),
 )
 
 
@@ -32,7 +32,7 @@ class Signup(models.Model):
 class add_prod_for_rent(models.Model):
     p_id = models.AutoField(primary_key=True)
     prod_name = models.CharField(max_length=255)
-    prod_image = models.FileField()
+    prod_image = models.FileField(blank=True, null=True)
     category = models.CharField(max_length=50, choices=prod_category, default='Others')
     short_description = models.TextField(blank=True, null=True)
     rent_price = models.DecimalField(decimal_places=2, max_digits=10)

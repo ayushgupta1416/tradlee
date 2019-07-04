@@ -15,8 +15,10 @@ def sell(request):
         if form.is_valid():
             form.save()
             return HttpResponseRedirect('/')
+    else:
+        form = sellForm()
     context = dict()
-    context['form'] = sellForm()
+    context['form'] = form
     temp = loader.get_template('tradlee/sell.html')
 
     return HttpResponse(temp.render(context, request))
@@ -28,8 +30,10 @@ def rent(request):
         if form.is_valid():
             form.save()
             return HttpResponseRedirect('/')
+    else:
+        form = rentForm()
     context = dict()
-    context['form'] = rentForm()
+    context['form'] = form
     temp = loader.get_template('tradlee/rent.html')
     return HttpResponse(temp.render(context, request))
 

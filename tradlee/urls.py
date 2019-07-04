@@ -1,5 +1,5 @@
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
 from . import views
 
 urlpatterns = [
@@ -9,5 +9,7 @@ urlpatterns = [
     path('rent', views.rent),
     path('rentfeedback/<p_id>', views.rentfeedback),
     path('sellfeedback/<p_id>', views.sellfeedback),
-    path('account/<username>/', views.account)
+    path('user/<username>/', views.user),
+    path('accounts/signup/', views.signup),
+    path('accounts/', include('django.contrib.auth.urls')),
 ]

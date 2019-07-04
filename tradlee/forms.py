@@ -20,25 +20,25 @@ class LoginForm(forms.ModelForm):
         fields = ('email', 'password')
 
 
-class rentForm(forms.ModelForm):
+class RentForm(forms.ModelForm):
     class Meta:
         model = add_prod_for_rent
         fields = ('prod_name', 'prod_image', 'category', 'short_description', 'rent_price', 'prod_age')
 
 
-class sellForm(forms.ModelForm):
+class SellForm(forms.ModelForm):
     class Meta:
         model = add_prod_for_sell
         fields = ('prod_name', 'prod_image', 'category', 'short_description', 'sell_price')
 
 
-class sellFeedbackForm(forms.ModelForm):
+class SellFeedbackForm(forms.ModelForm):
     class Meta:
         model = SellFeedback
         fields = ('customer_name', 'email', 'message')
 
 
-class rentFeedbackForm(forms.ModelForm):
+class RentFeedbackForm(forms.ModelForm):
     class Meta:
         model = RentFeedback
         fields = ('customer_name', 'email', 'message')

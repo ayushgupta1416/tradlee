@@ -32,6 +32,7 @@ class Signup(models.Model):
 class add_prod_for_rent(models.Model):
     p_id = models.AutoField(primary_key=True)
     prod_name = models.CharField(max_length=255)
+    prod_image = models.FileField()
     category = models.CharField(max_length=50, choices=prod_category, default='Others')
     short_description = models.TextField(blank=True, null=True)
     rent_price = models.DecimalField(decimal_places=2, max_digits=10)
@@ -44,6 +45,7 @@ class add_prod_for_rent(models.Model):
 class add_prod_for_sell(models.Model):
     p_id = models.AutoField(primary_key=True)
     prod_name = models.CharField(max_length=255)
+    prod_image = models.FileField()
     category = models.CharField(max_length=50, choices=prod_category, default='Others')
     short_description = models.TextField(blank=True, null=True)
     sell_price = models.DecimalField(decimal_places=2, max_digits=10)

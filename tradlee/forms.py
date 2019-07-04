@@ -23,13 +23,13 @@ class LoginForm(forms.ModelForm):
 class rentForm(forms.ModelForm):
     class Meta:
         model = add_prod_for_rent
-        fields = ('prod_name', 'category', 'short_description', 'rent_price', 'prod_age')
+        fields = ('prod_name', 'prod_image', 'category', 'short_description', 'rent_price', 'prod_age')
 
 
 class sellForm(forms.ModelForm):
     class Meta:
         model = add_prod_for_sell
-        fields = ('prod_name', 'category', 'short_description', 'sell_price')
+        fields = ('prod_name', 'prod_image', 'category', 'short_description', 'sell_price')
 
 
 class sellFeedbackForm(forms.ModelForm):

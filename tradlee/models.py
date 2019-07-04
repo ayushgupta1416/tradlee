@@ -1,5 +1,5 @@
 from django.db import models
-
+//some hacks thing
 prod_category = (
     ('1', "Men's Clothing"),
     ('2', "Women's Clothing"),

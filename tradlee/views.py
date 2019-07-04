@@ -1,7 +1,7 @@
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseRedirect
 from django.template import loader
 from .forms import sellForm, rentForm, rentFeedbackForm, sellFeedbackForm
-
+from .models import *
 
 def home(request):
     return HttpResponse('Home')
@@ -10,8 +10,11 @@ def home(request):
 
 def sell(request):
     if request.method == 'POST':
-        # save sell add
-        # TODO
+        form = sellForm(request.POST)
+        if form.is_valid():
+            print(1)
+            form.save()
+            return HttpResponseRedirect('/')
         return HttpResponse('form submitted!!<hr>page under construction')
     context = dict()
     context['form'] = sellForm()

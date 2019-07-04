@@ -1,5 +1,5 @@
 from django import forms
-from tradlee.models import Signup, Login, add_prod_for_rent, add_prod_for_sell , SellFeedback , RentFeedback
+from tradlee.models import Signup, Login, add_prod_for_rent, add_prod_for_sell, SellFeedback, RentFeedback
 
 
 class SignupForm(forms.ModelForm):
@@ -8,8 +8,8 @@ class SignupForm(forms.ModelForm):
     class Meta:
         model = Signup
         fields = (
-        'name', 'email', 'password', 'house_no', 'address_line1', 'address_line2', 'telephone', 'zip_code', 'state',
-        'country','city')
+            'name', 'email', 'password', 'house_no', 'address_line1', 'address_line2', 'telephone', 'zip_code', 'state',
+            'country', 'city')
 
 
 class LoginForm(forms.ModelForm):
@@ -35,10 +35,10 @@ class sellForm(forms.ModelForm):
 class sellFeedbackForm(forms.ModelForm):
     class Meta:
         model = SellFeedback
-        fields = ('customer_name', 'email', 'product', 'message')
+        fields = ('customer_name', 'email', 'message')
 
 
 class rentFeedbackForm(forms.ModelForm):
     class Meta:
         model = RentFeedback
-        fields = ('customer_name' , 'email' , 'product' , 'message')
+        fields = ('customer_name', 'email', 'message')

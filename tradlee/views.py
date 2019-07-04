@@ -1,6 +1,7 @@
 from django.http import HttpResponse
 from django.template import loader
-from .forms import sellForm, rentForm , rentFeedbackForm , sellFeedbackForm
+from .forms import sellForm, rentForm, rentFeedbackForm, sellFeedbackForm
+
 
 def home(request):
     return HttpResponse('Home')
@@ -28,21 +29,21 @@ def rent(request):
     return HttpResponse(temp.render(context, request))
 
 
-def rentfeedback(request):
+def rentfeedback(request, p_id):
     if request.method == 'POST':
-        return HttpResponse('feedback submitted!!')
+        return HttpResponse('feedback submitted for product id' + p_id)
     context = dict()
     context['form'] = rentFeedbackForm()
-    temp = loader.get_template('tradlee/rentfeed.html')
+    temp = loader.get_template('tradlee/rentFeed.html')
     return HttpResponse(temp.render(context, request))
 
 
-def sellfeedback(request):
+def sellfeedback(request, p_id):
     if request.method == 'POST':
-        return HttpResponse('feedback submitted!!')
+        return HttpResponse('feedback submitted for product id' + p_id)
     context = dict()
     context['form'] = sellFeedbackForm()
-    temp = loader.get_template('tradlee/sellfeed.html')
+    temp = loader.get_template('tradlee/sellFeed.html')
     return HttpResponse(temp.render(context, request))
 
 

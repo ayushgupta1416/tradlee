@@ -7,7 +7,7 @@ urlpatterns = [
     path('', views.home),
     path('sell', views.sell),
     path('rent', views.rent),
-    path('rentfeedback', views.rentfeedback),
-    path('sellfeedback', views.sellfeedback),
+    path('rentfeedback/<p_id>', views.rentfeedback),
+    path('sellfeedback/<p_id>', views.sellfeedback),
     path('account/<username>/', views.account)
 ]

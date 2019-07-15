@@ -62,6 +62,7 @@ def user(request, username):
     return HttpResponse('account ' + username)
     pass
 
+
 def signup(request):
     if request.method == 'POST':
         form = SignupForm(request.POST)

@@ -10,6 +10,6 @@ urlpatterns = [
     path('rentfeedback/<p_id>', views.rentfeedback),
     path('sellfeedback/<p_id>', views.sellfeedback),
     path('user/<username>/', views.user),
-    path('accounts/signup/', views.signup),
+    path('accounts/signup/', views.signup, name = 'signup'),
     path('accounts/', include('django.contrib.auth.urls')),
 ]

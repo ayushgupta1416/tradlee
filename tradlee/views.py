@@ -7,7 +7,7 @@ from .forms import SellForm, RentForm, RentFeedbackForm, SellFeedbackForm, Signu
 from .models import *
 
 def home(request):
-    return HttpResponse('Home')
+    return render(request,'home.html')
     pass
 
 
